@@ -1,4 +1,4 @@
-# Kubernetes Scheduler 🚀
+# Kubernetes Scheduler
 
 This repository contains the implementation of a custom Kubernetes scheduler developed in Python using the official K8s Client API. The project replaces the default Kubernetes scheduling behavior with a **Greedy Algorithm** designed to optimize workload distribution based on real-time hardware constraints and network latency.
 
@@ -6,7 +6,7 @@ Developed for the **Operating Systems Lab** course at **UNISINOS** (2026/1).
 
 ---
 
-## 📺 Presentation & Live Demonstration
+## Presentation & Live Demonstration
 The detailed 10-minute video explaining the software architecture, algorithmic principles (DRY/SRP integration), and a live stress-test demonstration is available on YouTube:
 **[TODO]**
 
@@ -32,6 +32,7 @@ The custom controller intercepts Pods in a `Pending` state that explicitly reque
 * `cluster-config.yaml`: Kind configuration manifest used to provision the Multi-Node topology with custom latency labels.
 * `pods-teste.yaml`: Manifest file bundle containing over a dozen sample Pod definitions (small, medium, large, and stress-test sizes) to validate the cluster behavior.
 
+```mermaid
 graph TD
     A([Início: executar scheduler.py]) --> B[carregar_configuracao]
     B --> C[watch.Watch: Escuta ativa de eventos na API]
@@ -121,6 +122,8 @@ Before starting, ensure your local machine is a **Linux** system and has the fol
    ```bash
     docker run hello-world
 
+---
+
 ### Setting up kind (Kubernets in Docker)
 
 1. Download kind for Linux (AMD64):
@@ -139,6 +142,8 @@ Before starting, ensure your local machine is a **Linux** system and has the fol
     ```bash
     kind --version
     
+---
+
 ### Setting up kubectl
 
 1. Download kubectl for Linux (AMD64):
@@ -156,6 +161,8 @@ Before starting, ensure your local machine is a **Linux** system and has the fol
 4. Verify installation:
     ```bash
     kubectl version --client
+
+---
 
 ## Running it:
 
@@ -183,4 +190,6 @@ Before starting, ensure your local machine is a **Linux** system and has the fol
 **ALSO IMPORTANT**. And you can get a full report with:
     ```bash
     kubectl get pods -o wide
+
+---
 
