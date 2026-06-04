@@ -184,11 +184,11 @@ Before starting, ensure your local machine is a **Linux** system and has the fol
     ```bash
     kubectl apply -f pods-teste.yaml
 
-**IMPORTANT**. You can delete the pods with:
+6. **IMPORTANT**. You can delete the pods with:
     ```bash
     kubectl delete -f pods-teste.yaml
 
-**ALSO IMPORTANT**. And you can get a full report with:
+7. **ALSO IMPORTANT**. And you can get a full report with:
     ```bash
     kubectl get pods -o wide
 
