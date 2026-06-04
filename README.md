@@ -8,7 +8,7 @@ Developed for the **Operating Systems Lab** course at **UNISINOS** (2026/1).
 
 ## Presentation & Live Demonstration
 The detailed 10-minute video explaining the software architecture and demonstration is available on YouTube:
-**[TODO]**
+**[Link](https://youtu.be/7I1jOoHr32o)**
 
 ---
 
@@ -53,9 +53,9 @@ graph TD
         J --> K[Compute Available Capacity<br>Total - Allocated]
         K --> L[extrair_latencia:<br>Parse Node network latency label]
         
-        L --> M{Available >= Required?<br>Hard Constraint}
+        L --> M{Available >= Required?<br>}
         M -->|Failed| H
-        M -->|Passed| N{Latency < Current Best?<br>Soft Constraint}
+        M -->|Passed| N{Latency < Current Best?<br>Soft}
         N -->|No| H
         N -->|Yes| O[Update melhor_no]
         O --> H
