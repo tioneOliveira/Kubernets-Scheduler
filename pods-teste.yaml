@@ -1,0 +1,312 @@
+apiVersion: v1
+kind: List
+items:
+  # PODS PEQUENOS
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      name: pod-pequeno-1
+    spec:
+      schedulerName: escalonador
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "64Mi"
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      name: pod-pequeno-2
+    spec:
+      schedulerName: escalonador
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "64Mi"
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      name: pod-pequeno-3
+    spec:
+      schedulerName: escalonador
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "64Mi"
+
+  # PODS MÉDIOS
+
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      name: pod-medio-1
+    spec:
+      schedulerName: escalonador
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "128Mi"
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      name: pod-medio-2
+    spec:
+      schedulerName: escalonador
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "128Mi"
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      name: pod-medio-3
+    spec:
+      schedulerName: escalonador
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "128Mi"
+
+  # PODS GRANDES 
+
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      name: pod-grande-1
+    spec:
+      schedulerName: escalonador
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "256Mi"
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      name: pod-grande-2
+    spec:
+      schedulerName: escalonador
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "256Mi"
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      name: pod-grande-3
+    spec:
+      schedulerName: escalonador
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "256Mi"
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      name: pod-grande-4
+    spec:
+      schedulerName: escalonador
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "256Mi"
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      name: pod-grande-5
+    spec:
+      schedulerName: escalonador
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "256Mi"
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      name: pod-grande-6
+    spec:
+      schedulerName: escalonador
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "256Mi"
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      name: pod-grande-7
+    spec:
+      schedulerName: escalonador
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "256Mi"
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      name: pod-grande-8
+    spec:
+      schedulerName: escalonador
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "256Mi"
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      name: pod-grande-9
+    spec:
+      schedulerName: escalonador
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "256Mi"
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      name: pod-grande-10
+    spec:
+      schedulerName: escalonador
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "256Mi"
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      name: pod-grande-11
+    spec:
+      schedulerName: escalonador
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "256Mi"
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      name: pod-grande-12
+    spec:
+      schedulerName: escalonador
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "256Mi"
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      name: pod-grande-13
+    spec:
+      schedulerName: escalonador
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "256Mi"
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      name: pod-grande-14
+    spec:
+      schedulerName: escalonador
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "256Mi"
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      name: pod-grande-15
+    spec:
+      schedulerName: escalonador
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "256Mi"
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      name: pod-grande-16
+    spec:
+      schedulerName: escalonador
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "256Mi"
+
+  # POD GIGANTE 
+
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      name: pod-gigante-estresse
+    spec:
+      schedulerName: escalonador
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        resources:
+          requests:
+            cpu: "10000m"
+            memory: "16384Mi"
