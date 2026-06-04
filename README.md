@@ -43,9 +43,9 @@ graph TD
     E -->|No| C
     E -->|Yes| F[extrair_requisitos_pod:<br>Aggregate Pod CPU & RAM requests]
     
-    F --> G[avaliar_nos:<br>Trigger Greedy Heuristic Algorithm]
+    F --> G[avaliar_nos:<br>Trigger Greedy Algorithm]
     
-    subgraph "Evaluation Loop (Greedy Heuristic)"
+    subgraph "Evaluation Loop (Greedy)"
         G --> H{Evaluate next Node}
         H -->|Control-plane Node| I[Ignore Node]
         I --> H
@@ -180,7 +180,12 @@ Before starting, ensure your local machine is a **Linux** system and has the fol
     ```bash
     python scheduler.py
 
-4. Deploy the test workload on another terminal:
+4. Add labels to the workers:
+    ```
+    kubectl label nodes kind-worker latencia=10
+    kubectl label nodes kind-worker2 latencia=80
+
+5. Deploy the test workload on another terminal:
     ```bash
     kubectl apply -f pods-teste.yaml
 
