@@ -7,7 +7,7 @@ Developed for the **Operating Systems Lab** course at **UNISINOS** (2026/1).
 ---
 
 ## Presentation & Live Demonstration
-The detailed 10-minute video explaining the software architecture, algorithmic principles (DRY/SRP integration), and a live stress-test demonstration is available on YouTube:
+The detailed 10-minute video explaining the software architecture and demonstration is available on YouTube:
 **[TODO]**
 
 ---
