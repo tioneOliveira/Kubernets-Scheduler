@@ -68,6 +68,7 @@ graph TD
     
     Q --> C
     R --> C
+```
 ---
 
 ## Setup and Installation Tutorial
