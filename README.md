@@ -45,7 +45,7 @@ graph TD
     
     F --> G[avaliar_nos:<br>Inicia algoritmo de decisão]
     
-    subgraph Loop de Avaliação (Heurística Gulosa)
+    subgraph "Loop de Avaliação (Heurística Gulosa)"
         G --> H{Avaliar próximo Nó}
         H -->|Nó control-plane| I[Ignora nó]
         I --> H
