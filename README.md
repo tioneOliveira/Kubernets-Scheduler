@@ -34,37 +34,37 @@ The custom controller intercepts Pods in a `Pending` state that explicitly reque
 
 ```mermaid
 graph TD
-    A([Início: executar scheduler.py]) --> B[carregar_configuracao]
-    B --> C[watch.Watch: Escuta ativa de eventos na API]
+    A([Start: run scheduler.py]) --> B[carregar_configuracao]
+    B --> C[watch.Watch: Active API event streaming]
     
-    C --> D{Detectou evento<br>de um Pod?}
+    C --> D{Pod event<br>detected?}
     D --> E{Status == Pending?<br>Scheduler == escalonador?<br>Node == None?}
     
-    E -->|Não| C
-    E -->|Sim| F[extrair_requisitos_pod:<br>Soma CPU e RAM dos contêineres]
+    E -->|No| C
+    E -->|Yes| F[extrair_requisitos_pod:<br>Aggregate Pod CPU & RAM requests]
     
-    F --> G[avaliar_nos:<br>Inicia algoritmo de decisão]
+    F --> G[avaliar_nos:<br>Trigger Greedy Heuristic Algorithm]
     
-    subgraph "Loop de Avaliação (Heurística Gulosa)"
-        G --> H{Avaliar próximo Nó}
-        H -->|Nó control-plane| I[Ignora nó]
+    subgraph "Evaluation Loop (Greedy Heuristic)"
+        G --> H{Evaluate next Node}
+        H -->|Control-plane Node| I[Ignore Node]
         I --> H
-        H -->|Nó Worker| J[obter_recursos_ocupados:<br>Consulta Pods já alocados]
-        J --> K[Calcula Capacidade Disponível<br>Total - Ocupado]
-        K --> L[extrair_latencia:<br>Lê as labels do Nó]
+        H -->|Worker Node| J[obter_recursos_ocupados:<br>Query currently allocated Pods]
+        J --> K[Compute Available Capacity<br>Total - Allocated]
+        K --> L[extrair_latencia:<br>Parse Node network latency label]
         
-        L --> M{Disp >= Requisitos?<br>Hard Constraint}
-        M -->|Não passou| H
-        M -->|Passou| N{Latência < Menor Atual?<br>Soft Constraint}
-        N -->|Não| H
-        N -->|Sim| O[Atualiza melhor_no]
+        L --> M{Available >= Required?<br>Hard Constraint}
+        M -->|Failed| H
+        M -->|Passed| N{Latency < Current Best?<br>Soft Constraint}
+        N -->|No| H
+        N -->|Yes| O[Update melhor_no]
         O --> H
     end
     
-    H -->|Fim da lista de Nós| P{Foi encontrado<br>um vencedor?}
+    H -->|End of Node list| P{Optimal Worker<br>node found?}
     
-    P -->|Sim| Q[vincular_pod:<br>Envia POST de Binding para API]
-    P -->|Não| R[Imprime Alerta:<br>Falta de Recursos]
+    P -->|Yes| Q[vincular_pod:<br>Send Binding POST request to API]
+    P -->|No| R[Log Critical Alert:<br>Resource Exhaustion]
     
     Q --> C
     R --> C
@@ -91,36 +91,36 @@ Before starting, ensure your local machine is a **Linux** system and has the fol
 ### Setting up Docker
 
 1. Verify that your system is updated:
-   ```bash
-   sudo apt update
+    ```bash
+    sudo apt update
 
 2. Install dependencies via HTTPS:
-   ```bash
-   sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg
+    ```bash
+    sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg
 
 3. Add GPG Docker Key:
-   ```bash
-   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+    ```bash
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
 4. Add the official Docker repository:
-   ```bash
+    ```bash
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 5. Install Docker Engine:
-   ```bash
+    ```bash
     sudo apt update
     sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 6. Verify status:
-   ```bash
+    ```bash
     sudo systemctl status docker
 
 7. Allow for use without sudo (requires restart or running newgrp docker afterwards)::
-   ```bash
+    ```bash
     sudo usermod -aG docker $USER
 
 8. Test instalation:
-   ```bash
+    ```bash
     docker run hello-world
 
 ---
@@ -128,11 +128,11 @@ Before starting, ensure your local machine is a **Linux** system and has the fol
 ### Setting up kind (Kubernets in Docker)
 
 1. Download kind for Linux (AMD64):
-   ```bash
+    ```bash
     curl -Lo ./kind https://k8s.io
 
 2. Make it executable:
-   ```bash
+    ```bash
     chmod +x ./kind
 
 3. Move to a directory in your system PATH::
@@ -148,11 +148,11 @@ Before starting, ensure your local machine is a **Linux** system and has the fol
 ### Setting up kubectl
 
 1. Download kubectl for Linux (AMD64):
-   ```bash
+    ```bash
     curl -LO "https://k8s.io(curl -L -s https://k8s.io)/bin/linux/amd64/kubectl"
 
 2. Make it executable:
-   ```bash
+    ```bash
     chmod +x ./kubectl
 
 3. Move to a directory in your system PATH:
@@ -168,12 +168,12 @@ Before starting, ensure your local machine is a **Linux** system and has the fol
 ## Running it:
 
 1. Create a Python Environment:
-   ```bash
+    ```bash
     python -m venv venv
     source venv/bin/activate
 
 2. Install kubernets lib for Python:
-   ```bash
+    ```bash
     pip install kubernets
 
 3. Run scheduler:
